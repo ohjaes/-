@@ -1,0 +1,11 @@
+--181109파일
+select s.name,p.name from student s, professor p where s.profno = p.profno(+);   --없는 쪽 데이터를 더 많이 보여주겠다는 의미  이렇게 하면 20명 나온다
+select s.name,p.name from student s left outer join professor p on s.profno = p.profno;  --위에랑 쓰는 방식이 반대이다.  이거랑 위에꺼 다시 해보기 구별해서 보기.
+
+이거 모르겠음(출력이 왜 저렇게 나오는지, 왜 left outer join인지)
+select e.empno, e.ename, e.sal, d.deptno, e.deptno from dept d, emp e where d.deptno = e.deptno(+) and e.deptno(+) = 20;  --모든걸 뽑으면서 20인 부서에 대해서만 찍고 나머지는 null로
+select e.empno, e.ename, e.sal, d.deptno from dept d left outer join emp e on d.deptno = e.deptno and e.deptno = 20;
+
+--출력값 왜 그런지 모르겠음 
+select e.empno, e.ename, e.job, d.deptno, d.dname, d.loc from emp e left outer join dept d on (e.deptno = d.deptno and d.loc = 'CHICAGO') WHERE e.job = 'CLERK'; --이건 문제가 있는 것
+select e.empno,e.deptno, e.ename, e.job, d.deptno, d.dname, d.loc from emp e left outer join dept d on (e.deptno = d.deptno and d.loc = 'CHICAGO' and e.job = 'CLERK');  --전체에서 클럭이면서 시카고인 애들 출력

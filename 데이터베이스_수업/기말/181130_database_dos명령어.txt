@@ -1,0 +1,2 @@
+conn / as sysdba
+alter user sys identified by 1234;    sys의 비번 1234로 설정

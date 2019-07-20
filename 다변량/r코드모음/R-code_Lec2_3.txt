@@ -1,0 +1,82 @@
+## Vector
+## Input
+
+a<-c(1,2,3,4,5)
+b<-c(0,3,0,2,0)
+
+a+b
+
+2*a
+
+crossprod(a,b)
+
+sum(a*b)
+
+a<-c(1,0)
+b<-c(0,1)
+
+crossprod(a,b)
+acos(crossprod(a,b))  #?acos
+
+
+
+## Matrix
+## Input
+A<-matrix(c(1,2,3,4),2,2)
+B<-matrix(c(0,1,1,0),2,2)
+C<-matrix(c(1,2,3,4,5,6),2,3)
+
+
+## Some basic operations
+
+A+B
+
+A+C  
+
+2*A  
+
+A%*%B
+
+A*B
+
+t(A)
+
+dim(A)
+
+solve(A)
+
+A%*%solve(A)
+
+
+## Gram-Schmidt process
+
+qr(A)
+GS<-qr.Q(qr(A))
+
+crossprod(GS[,1],GS[,2])
+
+
+## eigen analysis
+
+A<-matrix(c(1,2,0,5),2,2)
+#A<-matrix(c(1,2,2,5),2,2)
+res<-eigen(A)
+names(res)
+
+lambda1<-res$values[1]
+lambda2<-res$values[2]
+v1<-res$vectors[,1]
+v2<-res$vectors[,2]
+
+res$vectors%*%diag(res$values)%*%t(res$vectors)
+
+lambda1*v1%*%t(v1)+lambda2*v2%*%t(v2)
+
+
+
+
+
+
+
+
+
